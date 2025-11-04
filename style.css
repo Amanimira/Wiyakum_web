@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700;900&display=swap');
+        
+* { 
+    font-family: 'Poppins', sans-serif; 
+    box-sizing: border-box; /* Professional standard */
+}
+        
+/* Custom Colors & Typography */
+.primary-light-bg { background-color: #ffffff; color: #1f2937; }
+.primary-dark-text { color: #1f2937; } 
+        
+/* Hero Section Styles */
+.hero-section {
+    background-color: #f3f4f6;
+    position: relative;
+}
+.image-title {
+    font-size: 3.5rem; 
+    line-height: 1.1;
+    font-weight: 900; 
+    color: #1e40af; 
+}
+.image-subtitle {
+    font-size: 1.4rem; 
+    font-weight: 500;
+    color: #4b5563;
+}
+.card-image-placeholder {
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Interactive Effects */
+.floating-card {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); /* Smoother transition curve */
+}
+.floating-card:hover {
+    transform: translateY(-8px) scale(1.01);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4); 
+    z-index: 1000;
+    backdrop-filter: blur(5px);
+}
+.modal.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/* Progress Ring for Funding */
+.progress-ring {
+    transform: rotate(-90deg);
+}
+
+/* AI Input Focus Pulse */
+@keyframes placeholder-pulse {
+    0%, 100% { 
+        box-shadow: 0 0 0 0px rgba(59, 130, 246, 0.2); 
+        border-color: #d1d5db;
+    }
+    50% { 
+        box-shadow: 0 0 0 5px rgba(59, 130, 246, 0.3); 
+        border-color: #3b82f6;
+    }
+}
+.typing-effect {
+    animation: placeholder-pulse 3s infinite;
+}

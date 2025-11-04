@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wiyakum | Smart Neighborhood Project Platform</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+</head>
+<body class="primary-light-bg min-h-screen">
+    
+    <section class="hero-section min-h-[90vh] flex flex-col relative overflow-hidden">
+        <header class="container mx-auto px-6 py-6 flex justify-between items-center" role="banner">
+            <h1 class="primary-dark-text text-2xl font-black">Wiyakum</h1>
+            <div class="flex items-center space-x-4">
+                 <button class="p-2 rounded-full bg-blue-500/10 text-blue-600 hover:bg-blue-500/20 transition-colors" aria-label="Notifications">
+                     <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.22-1.78l5.96 5.96v3.75zm7.74-3.32l-3.75-3.75v-5.52l5.52 5.52c.42.5.75 1.05.97 1.63.22.58.33 1.2.33 1.83 0 1.93-.99 3.65-2.52 4.69zM12 4.07c3.95.49 7 3.85 7 7.93 0 .62-.08 1.21-.22 1.78l-5.96-5.96V4.07zM4.26 8.59l3.75 3.75v5.52l-5.52-5.52c-.42-.5-.75-1.05-.97-1.63C1.3 10.65 1 10.02 1 9.39c0-1.93.99-3.65 2.52-4.69zM12 18.93v-3.75l5.96-5.96c.14-.57-.22-1.16.22-1.78 0-4.08-3.05-7.39-7-7.93zM12 5.07v5.52l-5.96 5.96c-.14-.57-.22-1.16-.22-1.78 0-4.08 3.05-7.39 7-7.93z"></path></svg>
+                 </button>
+                <div class="flex items-center space-x-2" aria-live="polite" aria-label="Unread notifications count">
+                    <div class="w-6 h-6 rounded-full bg-yellow-400 text-gray-900 flex items-center justify-center text-xs font-bold">3</div>
+                    <div class="w-2 h-2 rounded-full bg-red-500"></div>
+                </div>
+            </div>
+        </header>
+
+        <main class="container mx-auto px-6 text-center relative z-10 flex flex-col items-center flex-grow" role="main">
+            <div class="mt-12 mb-10 max-w-3xl mx-auto">
+                <h1 class="image-title font-black mb-3">Wiyakum</h1>
+                <p class="image-subtitle">A smart platform to develop your ideas into successful neighborhood projects.</p>
+            </div>
+            
+            <div class="w-full max-w-4xl flex items-center mb-16" role="search">
+                <div class="relative flex-grow ml-4">
+                    <input
+                        id="aiInput"
+                        type="text"
+                        class="w-full p-5 bg-white border-2 border-gray-300 rounded-xl primary-dark-text placeholder-gray-500 focus:border-blue-500 focus:outline-none text-lg transition-colors shadow-inner"
+                        placeholder="Tell me your idea... e.g., food festival, coffee shop, kids' park"
+                        aria-label="Enter your idea for plan generation"
+                    >
+                </div>
+                <button onclick="generatePlan(this)" class="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white px-10 py-4 rounded-xl font-bold transition-all transform hover:scale-105 whitespace-nowrap flex items-center h-full shadow-lg">
+                    Get Started
+                    <span class="ml-2 text-2xl">✨</span>
+                </button>
+            </div>
+            
+            <div class="mb-12 w-full" aria-labelledby="live-events-heading">
+                <div class="flex justify-between items-center mb-6">
+                    <h3 id="live-events-heading" class="text-3xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
+                        🎯 Live Neighborhood Events
+                    </h3>
+                    <div class="flex items-center space-x-3">
+                        <button class="text-purple-600 hover:text-purple-800 font-semibold">View All</button>
+                        <button class="bg-gradient-to-r from-red-500 to-orange-500 text-white px-4 py-2 rounded-xl font-semibold hover:scale-105 transition-transform shadow-md" aria-current="page">
+                            🔴 Live
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="floating-card bg-white rounded-xl shadow-xl overflow-hidden border border-blue-200">
+                        <div class="card-image-placeholder relative" style="background-image: url('https://alanbatnews.net/assets/2022-07-31/images/378277_5_1659276120.jpg');" aria-label="Smart Chess Championship Image">
+                            <span class="absolute top-3 left-3 bg-purple-600 text-white text-xs px-3 py-1 rounded-full font-bold shadow-md">Artificial Intelligence</span>
+                        </div>
+                        <div class="p-6">
+                            <h4 class="text-xl font-bold primary-dark-text flex items-center mb-4">🏆 Smart Chess Championship</h4>
+                            <p class="text-gray-600 text-sm mb-4">Interactive chess tournament with smart move analysis and instant prizes.</p>
+                            <div class="text-gray-600 text-sm flex items-center mb-4">
+                                <span class="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
+                                Friday 7:00 PM - 10:00 PM
+                            </div>
+                            <div class="bg-blue-50 p-4 rounded-xl mb-4 border border-green-300">
+                                <div class="flex items-center justify-between">
+                                    <div class="text-left">
+                                        <p class="font-bold primary-dark-text">Crowdfunding</p>
+                                        <p class="text-xs text-gray-600">850 / 1,200 SAR</p>
+                                    </div>
+                                    <span class="text-xl font-bold text-green-700">71%</span>
+                                </div>
+                            </div>
+                            <div class="mb-4">
+                                <div class="flex justify-between text-xs mb-1">
+                                    <span class="text-gray-600">Participants</span>
+                                    <span class="font-bold text-green-700">18/30</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-2"><div class="bg-green-500 h-2 rounded-full" style="width: 71%;"></div></div>
+                            </div>
+                            <button class="w-full bg-gradient-to-r from-purple-600 to-indigo-700 text-white text-lg font-bold py-3 rounded-xl shadow-lg hover:scale-[1.02] transition-transform">Join Now</button>
+                        </div>
+                    </div>
+                    
+                    <div class="floating-card bg-white rounded-xl shadow-xl overflow-hidden border border-purple-200">
+                        <div class="card-image-placeholder relative" style="background-image: url('https://www.startpage.com/av/proxy-image?piurl=https%3A%2F%2Ftse4.mm.bing.net%2Fth%2Fid%2FOIP.tsT05Tg2Sx2ao40ICO239QHaFB%3Fcb%3D12%26pid%3DApi&sp=1760220331Tdeb93b48e3c048cb165e75ac034404bf8164889cd3005604b3683951ffe75c24');" aria-label="Digital Creativity Workshop Image">
+                        <span class="absolute top-3 left-3 bg-blue-600 text-white text-xs px-3 py-1 rounded-full font-bold shadow-md">Community</span>
+                    </div>
+                        <div class="p-6">
+                            <h4 class="text-xl font-bold primary-dark-text flex items-center mb-4">🎨 Digital Creativity Workshop</h4>
+                            <p class="text-gray-600 text-sm mb-4">Learn digital design and drawing with Artificial Intelligence.</p>
+                            <div class="text-gray-600 text-sm flex items-center mb-4">
+                                <span class="w-2 h-2 bg-red-500 rounded-full mr-2"></span>
+                                Saturday 4:00 PM - 7:00 PM
+                            </div>
+                            <div class="bg-yellow-50 p-4 rounded-xl mb-4 border border-yellow-300 flex items-center justify-between">
+                                <span class="text-3xl mr-3">🎁</span>
+                                <div class="text-left w-full"> 
+                                    <p class="text-lg font-bold primary-dark-text">Completely Free</p>
+                                    <p class="text-xs text-gray-600">Sponsored by the community</p>
+                                </div>
+                            </div>
+                            <div class="mb-4">
+                                <div class="flex justify-between text-xs mb-1">
+                                    <span class="text-gray-600">Participants</span>
+                                    <span class="font-bold text-blue-700">12/25</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-2"><div class="bg-blue-500 h-2 rounded-full" style="width: 48%;"></div></div>
+                            </div>
+                            <button class="w-full bg-gradient-to-r from-blue-500 to-cyan-600 text-white text-lg font-bold py-3 rounded-xl shadow-lg hover:scale-[1.02] transition-transform">Register for Free <span class="text-2xl ml-2">💡</span></button>
+                        </div>
+                    </div>
+
+                    <div class="floating-card bg-white rounded-xl shadow-xl overflow-hidden border border-red-200">
+                        <div class="card-image-placeholder relative" style="background-image: url('https://www.startpage.com/av/proxy-image?piurl=https%3A%2F%2Ftse3.mm.bing.net%2Fth%2Fid%2FOIP.tTJ824UdAVYIYaJ5wpjdpAHaDt%3Fcb%3D12%26pid%3DApi&sp=1760220187T96a6e8449af066ba3258b0a2a934bce566baf52aaa2f1c17b53aeb5bb267116b');" aria-label="Fitness Challenge Image">
+                            <span class="absolute top-3 left-3 bg-red-600 text-white text-xs px-3 py-1 rounded-full font-bold shadow-md">Almost Full</span>
+                        </div>
+                        <div class="p-6">
+                            <h4 class="text-xl font-bold primary-dark-text flex items-center mb-4">🏃‍♂️ Fitness Challenge</h4>
+                            <p class="text-gray-600 text-sm mb-4">A marathon of limitless ambition.</p>
+                            <div class="text-gray-600 text-sm flex items-center mb-4">
+                                <span class="w-2 h-2 bg-red-500 rounded-full mr-2"></span>
+                                Sunday 6:00 AM - 9:00 AM
+                            </div>
+                            <div class="bg-orange-50 p-4 rounded-xl mb-4 border border-orange-300 flex items-center justify-between">
+                                <span class="text-3xl mr-3">🏆</span>
+                                <div class="text-left">
+                                    <p class="text-lg font-bold primary-dark-text">Instant Prizes</p>
+                                    <p class="text-xs text-gray-600">Smart performance tracking</p>
+                                </div>
+                            </div>
+                            <div class="mb-4">
+                                <div class="flex justify-between text-xs mb-1">
+                                    <span class="text-gray-600">Participants</span>
+                                    <span class="font-bold text-red-700">45/50</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-2"><div class="bg-gradient-to-r from-orange-500 to-red-600 h-2 rounded-full" style="width: 90%;"></div></div>
+                            </div>
+                            <button class="w-full bg-gradient-to-r from-orange-500 to-red-600 text-white text-lg font-bold py-3 rounded-xl shadow-lg hover:scale-[1.02] transition-transform">Join the Challenge <span class="text-2xl ml-2">🏃‍♀️</span></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </section>
+
+    <section class="py-20 bg-white" aria-labelledby="success-stories-heading">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 id="success-stories-heading" class="text-4xl font-bold mb-4 text-blue-600">🌟 Discover the Power of the System</h2>
+                <p class="text-xl max-w-2xl mx-auto text-gray-500">Three real success stories showing how the system changes community life.</p>
+            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <div class="bg-gradient-to-br from-blue-50 to-blue-200 rounded-3xl p-8 floating-card cursor-pointer text-gray-900 shadow-md border border-blue-300" onclick="openModal('modal1')" role="button" aria-controls="modal1">
+                    <div class="text-center mb-6">
+                        <div class="text-6xl mb-4">🚀</div>
+                        <h3 class="text-2xl font-bold mb-2 text-blue-800">Empowering Individuals</h3>
+                        <p class="text-blue-500">Fahad's Robot Tournament Story</p>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="bg-white rounded-xl p-4 shadow-sm border border-blue-100">
+                            <div class="flex items-center mb-2"><span class="text-yellow-500 mr-2">⚡</span><span class="font-semibold text-gray-800">Simple Input</span></div>
+                            <p class="text-sm text-gray-600">"A sports event for kids"</p>
+                        </div>
+                        <div class="bg-white rounded-xl p-4 shadow-sm border border-blue-100">
+                            <div class="flex items-center mb-2"><span class="text-green-500 mr-2">🎯</span><span class="font-semibold text-gray-800">Smart Outcome</span></div>
+                            <p class="text-sm text-gray-600">Robot tournament + booking + funding</p>
+                        </div>
+                    </div>
+                    <div class="mt-6 text-center">
+                        <span class="bg-gradient-to-r from-blue-400 to-purple-400 text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg">Click for Details</span>
+                    </div>
+                </div>
+                
+                <div class="bg-gradient-to-br from-green-50 to-green-200 rounded-3xl p-8 floating-card cursor-pointer text-gray-900 shadow-md border border-green-300" onclick="openModal('modal2')" role="button" aria-controls="modal2">
+                    <div class="text-center mb-6">
+                        <div class="text-6xl mb-4">☕</div>
+                        <h3 class="text-2xl font-bold mb-2 text-green-800">Supporting Businesses</h3>
+                        <p class="text-green-500">Sarah's Coffee Cart Story</p>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="bg-white rounded-xl p-4 shadow-sm border border-green-100">
+                            <div class="flex items-center mb-2"><span class="text-yellow-500 mr-2">💼</span><span class="font-semibold text-gray-800">Business Request</span></div>
+                            <p class="text-sm text-gray-600">"Permit to sell coffee"</p>
+                        </div>
+                        <div class="bg-white rounded-xl p-4 shadow-sm border border-green-100">
+                            <div class="flex items-center mb-2"><span class="text-blue-500 mr-2">✅</span><span class="font-semibold text-gray-800">Instant Approval</span></div>
+                            <p class="text-sm text-gray-600">Permit + location + marketing</p>
+                        </div>
+                    </div>
+                    <div class="mt-6 text-center">
+                        <span class="bg-gradient-to-r from-blue-400 to-purple-400 text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg">Click for Details</span>
+                    </div>
+                </div>
+                
+                <div class="bg-gradient-to-br from-purple-50 to-purple-200 rounded-3xl p-8 floating-card cursor-pointer text-gray-900 shadow-md border border-purple-300" onclick="openModal('modal3')" role="button" aria-controls="modal3">
+                    <div class="text-center mb-6">
+                        <div class="text-6xl mb-4">🔧</div>
+                        <h3 class="text-2xl font-bold mb-2 text-purple-800">Smart Maintenance</h3>
+                        <p class="text-purple-500">Predictive Maintenance System</p>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="bg-white rounded-xl p-4 shadow-sm border border-purple-100">
+                            <div class="flex items-center mb-2"><span class="text-red-500 mr-2">🚨</span><span class="font-semibold text-gray-800">Early Alert</span></div>
+                            <p class="text-sm text-gray-600">Issue with the lighting</p>
+                        </div>
+                        <div class="bg-white rounded-xl p-4 shadow-sm border border-purple-100">
+                            <div class="flex items-center mb-2"><span class="text-green-500 mr-2">🛠️</span><span class="font-semibold text-gray-800">Automatic Solution</span></div>
+                            <p class="text-sm text-gray-600">Preventive maintenance plan</p>
+                        </div>
+                    </div>
+                    <div class="mt-6 text-center">
+                        <span class="bg-gradient-to-r from-blue-400 to-purple-400 text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg">Click for Details</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-white" aria-labelledby="courses-jobs-heading">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 id="courses-jobs-heading" class="text-4xl font-bold mb-4 text-blue-600">🎓 Courses & Job Opportunities</h2>
+                <p class="text-xl max-w-2xl mx-auto text-gray-500">Develop your skills and discover new job opportunities in your community.</p>
+            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div class="bg-blue-100 rounded-3xl p-8 shadow-xl border border-blue-300">
+                    <div class="text-center mb-8">
+                        <div class="text-5xl mb-4 text-blue-600">📚</div>
+                        <h3 class="text-2xl font-bold text-blue-900 mb-2">Training Courses</h3>
+                        <p class="text-blue-600">Free and paid courses to develop your skills.</p>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="bg-white border border-blue-200 rounded-2xl p-6 hover:scale-105 transition-all cursor-pointer shadow-md text-gray-900">
+                            <div class="flex items-center mb-3">
+                                <span class="text-3xl mr-3 text-blue-700">💻</span>
+                                <div><h4 class="font-bold">Programming & AI</h4><p class="text-sm text-gray-600">12 Weeks • Free</p></div>
+                            </div>
+                            <p class="text-sm mb-3 text-gray-700">Learn the basics of programming and AI applications.</p>
+                            <div class="flex justify-between items-center">
+                                <span class="bg-green-500/20 text-green-700 px-3 py-1 rounded-full text-xs font-semibold">Available Now</span>
+                                <span class="text-yellow-500 text-sm">⭐ 4.8</span>
+                            </div>
+                        </div>
+                        <div class="bg-white border border-blue-200 rounded-2xl p-6 hover:scale-105 transition-all cursor-pointer shadow-md text-gray-900">
+                            <div class="flex items-center mb-3">
+                                <span class="text-3xl mr-3 text-blue-700">🎨</span>
+                                <div><h4 class="font-bold">Digital Design</h4><p class="text-sm text-gray-600">8 Weeks • 299 SAR</p></div>
+                            </div>
+                            <p class="text-sm mb-3 text-gray-700">Master graphic design and web design.</p>
+                            <div class="flex justify-between items-center">
+                                <span class="bg-purple-500/20 text-purple-700 px-3 py-1 rounded-full text-xs font-semibold">Starts Dec 20</span>
+                                <span class="text-yellow-500 text-sm">⭐ 4.9</span>
+                            </div>
+                        </div>
+                        <div class="text-center mt-6">
+                            <button class="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-xl font-bold transition-all hover:scale-105 shadow-md">View All Courses</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-purple-100 rounded-3xl p-8 shadow-xl border border-purple-300">
+                    <div class="text-center mb-8">
+                        <div class="text-5xl mb-4 text-purple-600">💼</div>
+                        <h3 class="text-2xl font-bold text-purple-900 mb-2">Job Opportunities</h3>
+                        <p class="text-purple-600">Local jobs and volunteer projects in your neighborhood.</p>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="bg-white border border-purple-200 rounded-2xl p-6 hover:scale-105 transition-all cursor-pointer shadow-md text-gray-900">
+                            <div class="flex items-center justify-between mb-3">
+                                <div class="flex items-center"><span class="text-3xl mr-3 text-purple-700">👨‍💻</span><div><h4 class="font-bold">App Developer</h4><p class="text-sm text-gray-600">Local Tech Company</p></div></div>
+                                <span class="bg-green-500/20 text-green-700 px-3 py-1 rounded-full text-xs font-semibold">Full-time</span>
+                            </div>
+                            <p class="text-sm mb-3 text-gray-700">Mobile app developer needed with 2 years of experience.</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-blue-500 font-bold">5,000 - 8,000 SAR</span>
+                                <span class="text-gray-600 text-xs">2 days ago</span>
+                            </div>
+                        </div>
+                        <div class="bg-white border border-purple-200 rounded-2xl p-6 hover:scale-105 transition-all cursor-pointer shadow-md text-gray-900">
+                            <div class="flex items-center justify-between mb-3">
+                                <div class="flex items-center"><span class="text-3xl mr-3 text-purple-700">🤝</span><div><h4 class="font-bold">Event Coordinator</h4><p class="text-sm text-gray-600">Volunteer Work</p></div></div>
+                                <span class="bg-blue-500/20 text-blue-700 px-3 py-1 rounded-full text-xs font-semibold">Volunteer</span>
+                            </div>
+                            <p class="text-sm mb-3 text-gray-700">Coordinate and manage local community events.</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-purple-500 font-bold">Certificate + Experience</span>
+                                <span class="text-gray-600 text-xs">A week ago</span>
+                            </div>
+                        </div>
+                        <div class="text-center mt-6">
+                            <button class="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-xl font-bold transition-all hover:scale-105 shadow-md">View All Opportunities</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto mt-16">
+                <div class="bg-white rounded-2xl p-6 text-center shadow-lg border border-gray-200"><div class="text-3xl mb-2 text-blue-600">📚</div><div class="text-3xl font-bold text-blue-600">47</div><div class="text-sm text-gray-500">Courses Available</div></div>
+                <div class="bg-white rounded-2xl p-6 text-center shadow-lg border border-gray-200"><div class="text-3xl mb-2 text-blue-600">💼</div><div class="text-3xl font-bold text-blue-600">23</div><div class="text-sm text-gray-500">Job Opportunities</div></div>
+                <div class="bg-white rounded-2xl p-6 text-center shadow-lg border border-gray-200"><div class="text-3xl mb-2 text-blue-600">🎓</div><div class="text-3xl font-bold text-blue-600">1,234</div><div class="text-sm text-gray-500">Graduates</div></div>
+                <div class="bg-white rounded-2xl p-6 text-center shadow-lg border border-gray-200"><div class="text-3xl mb-2 text-blue-600">✅</div><div class="text-3xl font-bold text-blue-600">89%</div><div class="text-sm text-gray-500">Employment Rate</div></div>
+            </div>
+        </div>
+    </section>
+
+    <div id="generatedPlanScreen" style="display: none;" class="min-h-screen bg-gray-50 primary-dark-text fixed inset-0 z-[1050] overflow-y-auto" role="dialog" aria-modal="true" aria-labelledby="planTitle">
+        <header class="bg-white border-b border-gray-200 py-4 sticky top-0 z-10">
+            <div class="container mx-auto px-6 flex items-center justify-between">
+                <button onclick="goBackToDashboard()" class="flex items-center text-blue-600 hover:text-blue-800 transition-colors" aria-label="Back to home dashboard">
+                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                    Back to Home
+                </button>
+                <h2 class="text-xl font-bold text-gray-900">Generated Plan ✨</h2>
+                <div class="w-32"></div>
+            </div>
+        </header>
+
+        <main class="container mx-auto px-6 py-12">
+            <div class="bg-gradient-to-r from-blue-600 to-purple-700 rounded-3xl p-8 mb-8 text-center shadow-xl text-white">
+                <h1 id="planTitle" class="text-4xl font-black mb-4">🤖 Mini Robot Tournament</h1>
+                <div class="flex justify-center gap-4 text-sm flex-wrap">
+                    <span class="bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full">🎯 <span id="eventType">Sports Tech</span></span>
+                    <span class="bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full">👥 <span id="targetAudience">Kids & Youth</span></span>
+                    <span class="bg-green-400 text-gray-900 px-4 py-2 rounded-full font-bold shadow-lg">✅ Booked Automatically</span>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+                <div class="bg-white rounded-3xl p-8 shadow-xl border border-gray-200" aria-label="Plan Logistics">
+                    <h3 class="text-2xl font-bold mb-6 text-center text-blue-600">📋 Plan Details</h3>
+                    <div class="space-y-6">
+                        <div class="flex items-center p-4 bg-purple-100 rounded-2xl border border-purple-300"><div class="text-3xl mr-4 text-purple-600">📅</div><div><h4 class="font-bold text-purple-800">Scheduled Time</h4><p class="text-gray-600">Saturday, Dec 15, 5:00 PM - 8:00 PM</p></div></div>
+                        <div class="flex items-center p-4 bg-blue-100 rounded-2xl border border-blue-300"><div class="text-3xl mr-4 text-blue-600">📍</div><div><h4 class="font-bold text-blue-800">Booked Venue</h4><p class="text-gray-600">Neighborhood Sports Center - Main Hall</p></div></div>
+                        <div class="flex items-center p-4 bg-green-100 rounded-2xl border border-green-300"><div class="text-3xl mr-4 text-green-600">🤖</div><div><h4 class="font-bold text-green-800">Equipment Needed</h4><p class="text-gray-600">Mini robots + challenge arena + prizes</p></div></div>
+                        <div class="flex items-center p-4 bg-orange-100 rounded-2xl border border-orange-300"><div class="text-3xl mr-4 text-orange-600">👨‍🏫</div><div><h4 class="font-bold text-orange-800">Approved Supervisor</h4><p class="text-gray-600">Certified robotics coach - Confirmed</p></div></div>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-3xl p-8 shadow-xl relative flex flex-col items-center justify-center border border-gray-200" aria-label="Crowdfunding and Budget">
+                    <h3 class="text-2xl font-bold mb-6 text-center text-blue-600">Crowdfunding</h3>
+                    <div class="relative w-40 h-40 mb-8">
+                        <svg class="w-40 h-40 progress-ring" viewBox="0 0 160 160">
+                            <circle cx="80" cy="80" r="70" stroke="currentColor" stroke-width="8" fill="transparent" class="text-gray-300"/>
+                            <circle cx="80" cy="80" r="70" stroke="currentColor" stroke-width="8" fill="transparent"
+                                        class="text-green-600"
+                                        stroke-dasharray="439.82"
+                                        stroke-dashoffset="220"
+                                        id="progressCircle"/>
+                        </svg>
+                        <div class="absolute inset-0 flex items-center justify-center"><div class="text-center">
+                            <div class="text-3xl font-black text-green-600" id="fundingPercentage">50%</div>
+                            <div class="text-sm text-gray-600">Funded</div>
+                        </div></div>
+                    </div>
+                    
+                    <div class="w-full space-y-4 mb-6">
+                        <div class="flex justify-between items-center p-3 bg-gray-100 rounded-xl"><span class="text-gray-700">Total Cost</span><span class="font-bold text-gray-900">2,500 SAR</span></div>
+                        <div class="flex justify-between items-center p-3 bg-gray-100 rounded-xl"><span class="text-gray-700">Amount Raised</span><span class="font-bold text-green-600" id="raisedAmount">1,250 SAR</span></div>
+                        <div class="flex justify-between items-center p-3 bg-gray-100 rounded-xl"><span class="text-gray-700">Needed</span><span class="font-bold text-orange-600" id="remainingAmount">1,250 SAR</span></div>
+                    </div>
+                    
+                    <div class="bg-gray-100 rounded-2xl p-6 w-full border border-gray-200">
+                        <h4 class="font-bold text-center mb-4 text-gray-900">Your Suggested Contribution</h4>
+                        <div class="text-center mb-4">
+                            <span class="text-4xl font-bold text-yellow-600" id="contributionAmount">25</span>
+                            <span class="text-gray-700 text-xl"> SAR</span>
+                        </div>
+                        <input
+                            type="range"
+                            id="contributionSlider"
+                            min="10"
+                            max="100"
+                            value="25"
+                            class="w-full h-3 bg-gray-300 rounded-lg appearance-none cursor-pointer slider"
+                            oninput="updateContribution()"
+                            aria-valuemin="10" aria-valuemax="100" aria-valuenow="25"
+                        >
+                        <div class="flex justify-between text-xs text-gray-500 mt-2"><span>10 SAR</span><span>100 SAR</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-3xl p-8 mb-8 shadow-xl border border-gray-200" aria-label="Marketing Draft">
+                <h3 class="text-2xl font-bold mb-6 text-center text-purple-600">📢 Marketing Announcement Draft</h3>
+                <div class="bg-gradient-to-r from-blue-100 to-purple-100 rounded-2xl p-6 border border-purple-300">
+                    <h4 class="text-2xl font-bold mb-4 text-center text-gray-900">🤖 Mini Robot Tournament - Challenge the Future!</h4>
+                    <p class="text-gray-700 mb-6 leading-relaxed text-center">🚀 Join us for an exciting tech adventure! Kids and youth will compete in building and programming mini robots to overcome various challenges. A fun, educational event that combines fun, learning, and creativity.</p>
+                    <div class="grid grid-cols-2 gap-4 text-sm mb-6">
+                        <div class="bg-white rounded-xl p-3 border border-gray-200"><strong class="text-purple-600">📅 Date:</strong><br><span class="text-gray-700">Saturday, Dec 15, 5-8 PM</span></div>
+                        <div class="bg-white rounded-xl p-3 border border-gray-200"><strong class="text-blue-600">📍 Location:</strong><br><span class="text-gray-700">Neighborhood Sports Center</span></div>
+                        <div class="bg-white rounded-xl p-3 border border-gray-200"><strong class="text-green-600">🎯 Ages:</strong><br><span class="text-gray-700">8-16 years</span></div>
+                        <div class="bg-white rounded-xl p-3 border border-gray-200"><strong class="text-yellow-600">💰 Contribution:</strong><br><span class="text-gray-700">Only 25 SAR</span></div>
+                    </div>
+                    <div class="text-center">
+                        <div class="bg-blue-100 border border-blue-300 rounded-xl p-4">
+                            <p class="text-blue-600 text-sm"><strong>🔗 Registration Link:</strong> Will be auto-generated upon final approval.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex gap-6 justify-center flex-wrap">
+                <button onclick="editPlan()" class="bg-gray-300 hover:bg-gray-400 text-gray-800 px-8 py-4 rounded-2xl font-bold transition-all hover:scale-105 flex items-center shadow-md">
+                    <span class="text-2xl mr-2">✏️</span>Edit Plan
+                </button>
+                <button onclick="submitForApproval(this)" class="bg-gradient-to-r from-green-500 to-blue-500 hover:from-green-600 hover:to-blue-600 text-white px-8 py-4 rounded-2xl font-bold transition-all hover:scale-105 flex items-center shadow-xl">
+                    <span class="text-2xl mr-2">🚀</span>Submit for Final Approval
+                </button>
+            </div>
+        </main>
+    </div>
+
+    <div id="modal1" class="modal">
+        </div>
+    <div id="modal2" class="modal">
+        </div>
+    <div id="modal3" class="modal">
+        </div>
+
+    <footer class="bg-gray-800 text-white py-8" role="contentinfo">
+        <div class="container mx-auto px-6 text-center text-sm">
+            &copy; 2024 Wiyakum. All rights reserved. | Smart Neighborhood Platform
+        </div>
+    </footer>
+    
+    <script src="script.js"></script>
+</body>
+</html>
