@@ -1,21 +1,32 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wiyakum | Smart Neighborhood Project Platform</title>
+    <title>Wiyakum - منصة مشاريع الحي الذكية</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700;900&display=swap" rel="stylesheet">
 </head>
 <body class="primary-light-bg min-h-screen">
-    
+
     <section class="hero-section min-h-[90vh] flex flex-col relative overflow-hidden">
-        <header class="container mx-auto px-6 py-6 flex justify-between items-center" role="banner">
-            <h1 class="primary-dark-text text-2xl font-black">Wiyakum</h1>
+        <!-- Background Image with Blur -->
+        <div class="hero-background"></div>
+
+        <header class="container mx-auto px-6 py-6 flex justify-between items-center relative z-20" role="banner">
+            <h1 class="text-white text-2xl font-black drop-shadow-lg">Wiyakum</h1>
+
+            <!-- Navigation Menu -->
+            <nav class="hidden md:flex items-center space-x-8" role="navigation">
+                <a href="#home" class="nav-link-hero text-white hover:text-blue-200 font-medium transition-colors px-4 py-2 rounded-md hover:bg-white/10 drop-shadow">Home</a>
+                <a href="#events" class="nav-link-hero text-white hover:text-blue-200 font-medium transition-colors px-4 py-2 rounded-md hover:bg-white/10 drop-shadow">Events</a>
+                <a href="#case-studies" class="nav-link-hero text-white hover:text-blue-200 font-medium transition-colors px-4 py-2 rounded-md hover:bg-white/10 drop-shadow">Case Studies</a>
+                <a href="#courses" class="nav-link-hero text-white hover:text-blue-200 font-medium transition-colors px-4 py-2 rounded-md hover:bg-white/10 drop-shadow">Courses & Jobs</a>
+            </nav>
+
             <div class="flex items-center space-x-4">
-                 <button class="p-2 rounded-full bg-blue-500/10 text-blue-600 hover:bg-blue-500/20 transition-colors" aria-label="Notifications">
-                     <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.22-1.78l5.96 5.96v3.75zm7.74-3.32l-3.75-3.75v-5.52l5.52 5.52c.42.5.75 1.05.97 1.63.22.58.33 1.2.33 1.83 0 1.93-.99 3.65-2.52 4.69zM12 4.07c3.95.49 7 3.85 7 7.93 0 .62-.08 1.21-.22 1.78l-5.96-5.96V4.07zM4.26 8.59l3.75 3.75v5.52l-5.52-5.52c-.42-.5-.75-1.05-.97-1.63C1.3 10.65 1 10.02 1 9.39c0-1.93.99-3.65 2.52-4.69zM12 18.93v-3.75l5.96-5.96c.14-.57-.22-1.16.22-1.78 0-4.08-3.05-7.39-7-7.93zM12 5.07v5.52l-5.96 5.96c-.14-.57-.22-1.16-.22-1.78 0-4.08 3.05-7.39 7-7.93z"></path></svg>
+                 <button class="p-2 rounded-full bg-white/20 text-white hover:bg-white/30 transition-colors backdrop-blur-sm" aria-label="Notifications">
+                     <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.89 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z"/></svg>
                  </button>
                 <div class="flex items-center space-x-2" aria-live="polite" aria-label="Unread notifications count">
                     <div class="w-6 h-6 rounded-full bg-yellow-400 text-gray-900 flex items-center justify-center text-xs font-bold">3</div>
@@ -24,29 +35,33 @@
             </div>
         </header>
 
-        <main class="container mx-auto px-6 text-center relative z-10 flex flex-col items-center flex-grow" role="main">
-            <div class="mt-12 mb-10 max-w-3xl mx-auto">
-                <h1 class="image-title font-black mb-3">Wiyakum</h1>
-                <p class="image-subtitle">A smart platform to develop your ideas into successful neighborhood projects.</p>
-            </div>
-            
-            <div class="w-full max-w-4xl flex items-center mb-16" role="search">
-                <div class="relative flex-grow ml-4">
-                    <input
+        <main class="container mx-auto px-6 text-center relative z-10 flex flex-col items-center flex-grow justify-center" role="main">
+            <div class="mb-10 max-w-3xl mx-auto">
+                <h1 class="text-5xl md:text-6xl font-black mb-6 text-white drop-shadow-2xl">Wiyakum</h1>
+                <p class="text-xl md:text-1xl text-white/90 mb-8 drop-shadow-lg">"We are with you to turn ideas into reality "</p>
+
+                <!-- Search Bar -->
+                  <div class="w-full max-w-4xl flex items-center mb-16" role="search">
+                    <div class="relative flex-grow ml-4">
+                      <input
                         id="aiInput"
                         type="text"
-                        class="w-full p-5 bg-white border-2 border-gray-300 rounded-xl primary-dark-text placeholder-gray-500 focus:border-blue-500 focus:outline-none text-lg transition-colors shadow-inner"
+                        class="w-full px-6 py-4 pr-14 rounded-full text-lg bg-white/95 backdrop-blur-md shadow-2xl focus:outline-none focus:ring-4 focus:ring-blue-300 transition-all"
                         placeholder="Tell me your idea... e.g., food festival, coffee shop, kids' park"
                         aria-label="Enter your idea for plan generation"
-                    >
-                </div>
-                <button onclick="generatePlan(this)" class="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white px-10 py-4 rounded-xl font-bold transition-all transform hover:scale-105 whitespace-nowrap flex items-center h-full shadow-lg">
-                    Get Started
-                    <span class="ml-2 text-2xl">✨</span>
-                </button>
+                      /> 
+                      </div>
+                <button onclick="generatePlan(this)" class="bg-gradient-to-r  text-white w-16 h-16 rounded-full font-bold transition-all transform hover:scale-110 shadow-lg flex items-center justify-center flex-shrink-0" aria-label="ابدأ التخطيط">
+    <span class="text-3xl">✨</span>
+</button>
             </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </section>
             
-            <div class="mb-12 w-full" aria-labelledby="live-events-heading">
+            <div class="mb-12 w-full" aria-labelledby="live-events-heading" id="events">
                 <div class="flex justify-between items-center mb-6">
                     <h3 id="live-events-heading" class="text-3xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
                         🎯 Live Neighborhood Events
@@ -92,7 +107,7 @@
                     </div>
                     
                     <div class="floating-card bg-white rounded-xl shadow-xl overflow-hidden border border-purple-200">
-                        <div class="card-image-placeholder relative" style="background-image: url('https://www.startpage.com/av/proxy-image?piurl=https%3A%2F%2Ftse4.mm.bing.net%2Fth%2Fid%2FOIP.tsT05Tg2Sx2ao40ICO239QHaFB%3Fcb%3D12%26pid%3DApi&sp=1760220331Tdeb93b48e3c048cb165e75ac034404bf8164889cd3005604b3683951ffe75c24');" aria-label="Digital Creativity Workshop Image">
+                        <div class="card-image-placeholder relative" style="background-image: url('https://img-c.udemycdn.com/course/750x422/6051849_5ee2.jpg');" aria-label="Digital Creativity Workshop Image">
                         <span class="absolute top-3 left-3 bg-blue-600 text-white text-xs px-3 py-1 rounded-full font-bold shadow-md">Community</span>
                     </div>
                         <div class="p-6">
@@ -121,7 +136,7 @@
                     </div>
 
                     <div class="floating-card bg-white rounded-xl shadow-xl overflow-hidden border border-red-200">
-                        <div class="card-image-placeholder relative" style="background-image: url('https://www.startpage.com/av/proxy-image?piurl=https%3A%2F%2Ftse3.mm.bing.net%2Fth%2Fid%2FOIP.tTJ824UdAVYIYaJ5wpjdpAHaDt%3Fcb%3D12%26pid%3DApi&sp=1760220187T96a6e8449af066ba3258b0a2a934bce566baf52aaa2f1c17b53aeb5bb267116b');" aria-label="Fitness Challenge Image">
+                        <div class="card-image-placeholder relative" style="background-image: url('https://www.backuptrust.org.uk/wp-content/uploads/DSC01194-580x409.jpg');" aria-label="Fitness Challenge Image">
                             <span class="absolute top-3 left-3 bg-red-600 text-white text-xs px-3 py-1 rounded-full font-bold shadow-md">Almost Full</span>
                         </div>
                         <div class="p-6">
@@ -153,7 +168,7 @@
         </main>
     </section>
 
-    <section class="py-20 bg-white" aria-labelledby="success-stories-heading">
+    <section class="py-20 bg-white" aria-labelledby="success-stories-heading" id="case-studies">
         <div class="container mx-auto px-6">
             <div class="text-center mb-16">
                 <h2 id="success-stories-heading" class="text-4xl font-bold mb-4 text-blue-600">🌟 Discover the Power of the System</h2>
@@ -226,12 +241,13 @@
         </div>
     </section>
 
-    <section class="py-20 bg-white" aria-labelledby="courses-jobs-heading">
+    <section class="py-20 bg-gray-50" aria-labelledby="courses-jobs-heading" id="courses">
         <div class="container mx-auto px-6">
             <div class="text-center mb-16">
                 <h2 id="courses-jobs-heading" class="text-4xl font-bold mb-4 text-blue-600">🎓 Courses & Job Opportunities</h2>
-                <p class="text-xl max-w-2xl mx-auto text-gray-500">Develop your skills and discover new job opportunities in your community.</p>
+                <p class="text-xl text-gray-500 max-w-2xl mx-auto">Develop your skills and discover new job opportunities in your community.</p>
             </div>
+            
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
                 <div class="bg-blue-100 rounded-3xl p-8 shadow-xl border border-blue-300">
                     <div class="text-center mb-8">
@@ -239,6 +255,7 @@
                         <h3 class="text-2xl font-bold text-blue-900 mb-2">Training Courses</h3>
                         <p class="text-blue-600">Free and paid courses to develop your skills.</p>
                     </div>
+                    
                     <div class="space-y-4">
                         <div class="bg-white border border-blue-200 rounded-2xl p-6 hover:scale-105 transition-all cursor-pointer shadow-md text-gray-900">
                             <div class="flex items-center mb-3">
@@ -251,6 +268,7 @@
                                 <span class="text-yellow-500 text-sm">⭐ 4.8</span>
                             </div>
                         </div>
+                        
                         <div class="bg-white border border-blue-200 rounded-2xl p-6 hover:scale-105 transition-all cursor-pointer shadow-md text-gray-900">
                             <div class="flex items-center mb-3">
                                 <span class="text-3xl mr-3 text-blue-700">🎨</span>
@@ -262,6 +280,7 @@
                                 <span class="text-yellow-500 text-sm">⭐ 4.9</span>
                             </div>
                         </div>
+                        
                         <div class="text-center mt-6">
                             <button class="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-xl font-bold transition-all hover:scale-105 shadow-md">View All Courses</button>
                         </div>
@@ -274,6 +293,7 @@
                         <h3 class="text-2xl font-bold text-purple-900 mb-2">Job Opportunities</h3>
                         <p class="text-purple-600">Local jobs and volunteer projects in your neighborhood.</p>
                     </div>
+                    
                     <div class="space-y-4">
                         <div class="bg-white border border-purple-200 rounded-2xl p-6 hover:scale-105 transition-all cursor-pointer shadow-md text-gray-900">
                             <div class="flex items-center justify-between mb-3">
@@ -286,6 +306,7 @@
                                 <span class="text-gray-600 text-xs">2 days ago</span>
                             </div>
                         </div>
+                        
                         <div class="bg-white border border-purple-200 rounded-2xl p-6 hover:scale-105 transition-all cursor-pointer shadow-md text-gray-900">
                             <div class="flex items-center justify-between mb-3">
                                 <div class="flex items-center"><span class="text-3xl mr-3 text-purple-700">🤝</span><div><h4 class="font-bold">Event Coordinator</h4><p class="text-sm text-gray-600">Volunteer Work</p></div></div>
@@ -297,6 +318,7 @@
                                 <span class="text-gray-600 text-xs">A week ago</span>
                             </div>
                         </div>
+                        
                         <div class="text-center mt-6">
                             <button class="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-xl font-bold transition-all hover:scale-105 shadow-md">View All Opportunities</button>
                         </div>
@@ -352,10 +374,10 @@
                         <svg class="w-40 h-40 progress-ring" viewBox="0 0 160 160">
                             <circle cx="80" cy="80" r="70" stroke="currentColor" stroke-width="8" fill="transparent" class="text-gray-300"/>
                             <circle cx="80" cy="80" r="70" stroke="currentColor" stroke-width="8" fill="transparent"
-                                        class="text-green-600"
-                                        stroke-dasharray="439.82"
-                                        stroke-dashoffset="220"
-                                        id="progressCircle"/>
+                                    class="text-green-600"
+                                    stroke-dasharray="439.82"
+                                    stroke-dashoffset="220"
+                                    id="progressCircle"/>
                         </svg>
                         <div class="absolute inset-0 flex items-center justify-center"><div class="text-center">
                             <div class="text-3xl font-black text-green-600" id="fundingPercentage">50%</div>
@@ -421,18 +443,415 @@
     </div>
 
     <div id="modal1" class="modal">
-        </div>
-    <div id="modal2" class="modal">
-        </div>
-    <div id="modal3" class="modal">
-        </div>
+        <div class="bg-white rounded-3xl p-8 max-w-3xl mx-4 max-h-[90vh] overflow-y-auto border border-blue-500/30 text-gray-900 shadow-2xl">
+            <div class="flex justify-between items-center mb-8">
+                <h2 class="text-2xl font-bold text-blue-600">🚀 Empowering Individuals - Fahad's Story</h2>
+                <button onclick="closeModal('modal1')" class="text-gray-400 hover:text-gray-900 text-3xl">&times;</button>
+            </div>
+            
+            <div class="mb-6 p-6 bg-blue-100 rounded-2xl border border-blue-300">
+                <p class="text-gray-800"><strong>Persona:</strong> Fahad - A tech-savvy father of three.</p>
+            </div>
 
+            <div class="space-y-6">
+                <div class="flex items-start">
+                    <div class="bg-gradient-to-r from-blue-500 to-purple-500 text-white w-12 h-12 rounded-full flex items-center justify-center font-bold text-xl mr-4 flex-shrink-0 shadow-md">1</div>
+                    <div class="bg-gray-100 rounded-2xl p-6 flex-1 border border-gray-200">
+                        <h4 class="font-bold text-blue-600 mb-3">💭 Simple Input</h4>
+                        <p class="text-gray-700">"I want a fun, innovative evening sports event for kids on the weekend."</p>
+                    </div>
+                </div>
+
+                <div class="flex items-start">
+                    <div class="bg-gradient-to-r from-blue-500 to-purple-500 text-white w-12 h-12 rounded-full flex items-center justify-center font-bold text-xl mr-4 flex-shrink-0 shadow-md">2</div>
+                    <div class="bg-gray-100 rounded-2xl p-6 flex-1 border border-gray-200">
+                        <h4 class="font-bold text-blue-600 mb-3">🧠 Smart Analysis</h4>
+                        <p class="text-gray-700">The system analyzes: Target audience (kids) + goal (edutainment) + timing (weekend evening) + innovation factor.</p>
+                    </div>
+                </div>
+
+                <div class="flex items-start">
+                    <div class="bg-gradient-to-r from-blue-500 to-purple-500 text-white w-12 h-12 rounded-full flex items-center justify-center font-bold text-xl mr-4 flex-shrink-0 shadow-md">3</div>
+                    <div class="bg-gray-100 rounded-2xl p-6 flex-1 border border-gray-200">
+                        <h4 class="font-bold text-green-600 mb-3">⚡ Auto-Generation</h4>
+                        <p class="text-gray-700">Creates a plan: "Mini Robot Challenge Tournament" + auto-books facility + lists equipment + finds a qualified supervisor.</p>
+                    </div>
+                </div>
+
+                <div class="flex items-start">
+                    <div class="bg-gradient-to-r from-blue-500 to-purple-500 text-white w-12 h-12 rounded-full flex items-center justify-center font-bold text-xl mr-4 flex-shrink-0 shadow-md">4</div>
+                    <div class="bg-gray-100 rounded-2xl p-6 flex-1 border border-gray-200">
+                        <h4 class="font-bold text-yellow-600 mb-3">🎯 Full Automation</h4>
+                        <p class="text-gray-700">Prepares resources + assigns a referee + drafts marketing ad + creates registration link + sets up crowdfunding.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-8 p-6 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-2xl shadow-lg">
+                <h4 class="font-bold mb-3 text-xl">✨ Final Result</h4>
+                <p class="text-lg">Fahad was empowered to organize a complete event with a single click, without any administrative hassles or bureaucracy.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal2" class="modal">
+        <div class="bg-white rounded-3xl p-8 max-w-3xl mx-4 max-h-[90vh] overflow-y-auto border border-green-500/30 text-gray-900 shadow-2xl">
+            <div class="flex justify-between items-center mb-8">
+                <h2 class="text-2xl font-bold text-green-600">☕ Supporting Businesses - Sarah's Story</h2>
+                <button onclick="closeModal('modal2')" class="text-gray-400 hover:text-gray-900 text-3xl">&times;</button>
+            </div>
+            
+            <div class="mb-6 p-6 bg-green-100 rounded-2xl border border-green-300">
+                <p class="text-gray-800"><strong>Persona:</strong> Sarah - A young entrepreneur with a mobile coffee business.</p>
+            </div>
+
+            <div class="space-y-6">
+                <div class="flex items-start">
+                    <div class="bg-gradient-to-r from-green-500 to-teal-500 text-white w-12 h-12 rounded-full flex items-center justify-center font-bold text-xl mr-4 flex-shrink-0 shadow-md">1</div>
+                    <div class="bg-gray-100 rounded-2xl p-6 flex-1 border border-gray-200">
+                        <h4 class="font-bold text-green-600 mb-3">💼 Business Request</h4>
+                        <p class="text-gray-700">"I want a permit to sell coffee and hot drinks during sports events in the neighborhood."</p>
+                    </div>
+                </div>
+
+                <div class="flex items-start">
+                    <div class="bg-gradient-to-r from-green-500 to-teal-500 text-white w-12 h-12 rounded-full flex items-center justify-center font-bold text-xl mr-4 flex-shrink-0 shadow-md">2</div>
+                    <div class="bg-gray-100 rounded-2xl p-6 flex-1 border border-gray-200">
+                        <h4 class="font-bold text-teal-600 mb-3">📊 Commercial Analysis</h4>
+                        <p class="text-gray-700">Analyzes business type + permit requirements + available events + feasibility study + identifies optimal locations.</p>
+                    </div>
+                </div>
+
+                <div class="flex items-start">
+                    <div class="bg-gradient-to-r from-green-500 to-teal-500 text-white w-12 h-12 rounded-full flex items-center justify-center font-bold text-xl mr-4 flex-shrink-0 shadow-md">3</div>
+                    <div class="bg-gray-100 rounded-2xl p-6 flex-1 border border-gray-200">
+                        <h4 class="font-bold text-blue-600 mb-3">✅ Smart Approval</h4>
+                        <p class="text-gray-700">Issues an instant permit + suggests best spots + calculates expected profit + links with insurance.</p>
+                    </div>
+                </div>
+
+                <div class="flex items-start">
+                    <div class="bg-gradient-to-r from-green-500 to-teal-500 text-white w-12 h-12 rounded-full flex items-center justify-center font-bold text-xl mr-4 flex-shrink-0 shadow-md">4</div>
+                    <div class="bg-gray-100 rounded-2xl p-6 flex-1 border border-gray-200">
+                        <h4 class="font-bold text-yellow-600 mb-3">🚀 Integrated Support</h4>
+                        <p class="text-gray-700">Connects to payment platform + markets to customers + tracks sales + provides logistics support + supplier network.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-8 p-6 bg-gradient-to-r from-green-600 to-teal-600 text-white rounded-2xl shadow-lg">
+                <h4 class="font-bold mb-3 text-xl">💡 Final Result</h4>
+                <p class="text-lg">Sarah was able to launch her business easily with comprehensive support from the system, boosting the local economy.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal3" class="modal">
+        <div class="bg-white rounded-3xl p-8 max-w-3xl mx-4 max-h-[90vh] overflow-y-auto border border-orange-500/30 text-gray-900 shadow-2xl">
+            <div class="flex justify-between items-center mb-8">
+                <h2 class="text-2xl font-bold text-orange-600">🔧 Predictive Maintenance - The Smart System</h2>
+                <button onclick="closeModal('modal3')" class="text-gray-400 hover:text-gray-900 text-3xl">&times;</button>
+            </div>
+            
+            <div class="mb-6 p-6 bg-orange-100 rounded-2xl border border-orange-300">
+                <p class="text-gray-800"><strong>System:</strong> A network of IoT sensors for smart facility management.</p>
+            </div>
+
+            <div class="space-y-6">
+                <div class="flex items-start">
+                    <div class="bg-gradient-to-r from-orange-500 to-red-500 text-white w-12 h-12 rounded-full flex items-center justify-center font-bold text-xl mr-4 flex-shrink-0 shadow-md">1</div>
+                    <div class="bg-gray-100 rounded-2xl p-6 flex-1 border border-gray-200">
+                        <h4 class="font-bold text-orange-600 mb-3">🚨 Smart Alert</h4>
+                        <p class="text-gray-700">Sensors detect a 15% drop in the efficiency of the lighting system in the sports area.</p>
+                    </div>
+                </div>
+
+                <div class="flex items-start">
+                    <div class="bg-gradient-to-r from-orange-500 to-red-500 text-white w-12 h-12 rounded-full flex items-center justify-center font-bold text-xl mr-4 flex-shrink-0 shadow-md">2</div>
+                    <div class="bg-gray-100 rounded-2xl p-6 flex-1 border border-gray-200">
+                        <h4 class="font-bold text-red-600 mb-3">🔮 Predictive Analysis</h4>
+                        <p class="text-gray-700">The system predicts a potential failure within 3 weeks + identifies required maintenance + estimates the cost.</p>
+                    </div>
+                </div>
+
+                <div class="flex items-start">
+                    <div class="bg-gradient-to-r from-orange-500 to-red-500 text-white w-12 h-12 rounded-full flex items-center justify-center font-bold text-xl mr-4 flex-shrink-0 shadow-md">3</div>
+                    <div class="bg-gray-100 rounded-2xl p-6 flex-1 border border-gray-200">
+                        <h4 class="font-bold text-yellow-600 mb-3">📋 Automated Planning</h4>
+                        <p class="text-gray-700">Generates a preventive maintenance plan + books a specialized technician + orders spare parts + allocates a budget.</p>
+                    </div>
+                </div>
+
+                <div class="flex items-start">
+                    <div class="bg-gradient-to-r from-orange-500 to-red-500 text-white w-12 h-12 rounded-full flex items-center justify-center font-bold text-xl mr-4 flex-shrink-0 shadow-md">4</div>
+                    <div class="bg-gray-100 rounded-2xl p-6 flex-1 border border-gray-200">
+                        <h4 class="font-bold text-green-600 mb-3">⚙️ Coordinated Execution</h4>
+                        <p class="text-gray-700">Schedules the work during off-peak hours + notifies residents + tracks progress + generates a completion report.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-8 p-6 bg-gradient-to-r from-orange-600 to-red-600 text-white rounded-2xl shadow-lg">
+                <h4 class="font-bold mb-3 text-xl">🎯 Final Result</h4>
+                <p class="text-lg">Maintenance is shifted from reactive to predictive, saving 60% on costs and preventing service disruptions.</p>
+            </div>
+        </div>
+    </div>
+    
     <footer class="bg-gray-800 text-white py-8" role="contentinfo">
         <div class="container mx-auto px-6 text-center text-sm">
             &copy; 2024 Wiyakum. All rights reserved. | Smart Neighborhood Platform
         </div>
     </footer>
     
-    <script src="script.js"></script>
+    <script>
+        function showSuggestions() {
+            const suggestions = [
+                "Organize a family-friendly street food festival with heritage shows",
+                "Create an interactive kids' reading club with digital stories",
+                "A workshop to teach programming and AI to young people",
+                "Neighborhood clean-up and beautification campaign with environmental contests",
+                "A bazaar for local products and handmade crafts",
+                "A mini football league for kids with prizes",
+                "An art exhibition for local talents and creations",
+                "A collaborative cooking workshop to learn traditional dishes"
+            ];
+            
+            const randomSuggestion = suggestions[Math.floor(Math.random() * suggestions.length)];
+            document.getElementById('aiInput').value = randomSuggestion;
+            
+            // Add typing effect
+            const textarea = document.getElementById('aiInput');
+            textarea.classList.add('typing-effect');
+            setTimeout(() => textarea.classList.remove('typing-effect'), 3000);
+        }
+
+        function generatePlan(button) {
+            const input = document.getElementById('aiInput').value;
+            if (!input.trim()) {
+                alert('Please enter your idea first! 💡');
+                return;
+            }
+            
+            // Simulate AI processing with enhanced animation
+            const originalText = button.innerHTML;
+            button.innerHTML = '⏳ Analyzing & Generating...';
+            button.disabled = true;
+            button.classList.add('animate-pulse');
+            
+            // Add loading overlay
+            const loadingOverlay = document.createElement('div');
+            loadingOverlay.className = 'fixed inset-0 bg-white/70 backdrop-blur-sm flex items-center justify-center z-50';
+            loadingOverlay.innerHTML = `
+                <div class="bg-white rounded-3xl p-8 text-center max-w-md mx-4 shadow-2xl border border-gray-200">
+                    <div class="text-6xl mb-4 animate-spin text-blue-600">🤖</div>
+                    <h3 class="text-xl font-bold mb-2 text-gray-900">AI at work...</h3>
+                    <p class="text-gray-600 mb-4">Analyzing your request and creating a comprehensive plan.</p>
+                    <div class="w-full bg-gray-300 rounded-full h-2">
+                        <div class="bg-gradient-to-r from-purple-500 to-blue-500 h-2 rounded-full animate-pulse" style="width: 70%"></div>
+                    </div>
+                </div>
+            `;
+            document.body.appendChild(loadingOverlay);
+            
+            setTimeout(() => {
+                document.body.removeChild(loadingOverlay);
+                showGeneratedPlan(input);
+                button.innerHTML = originalText;
+                button.disabled = false;
+                button.classList.remove('animate-pulse');
+                document.getElementById('aiInput').value = '';
+            }, 4000);
+        }
+
+        function showGeneratedPlan(userInput) {
+    // تصحيح: استخدام الكلاس الصحيح .hero-section بدلاً من .image-hero-gradient
+    const heroSection = document.querySelector('.hero-section');
+    if (heroSection) heroSection.style.display = 'none';
+
+    document.querySelectorAll('section').forEach(sec => {
+        // استثناء شاشة الخطة والمودال
+        if (sec.id !== 'generatedPlanScreen' && !sec.classList.contains('modal')) {
+            sec.style.display = 'none';
+        }
+    });
+    
+    const footer = document.querySelector('footer');
+    if (footer) footer.style.display = 'none';
+    
+    // إظهار شاشة الخطة
+    const planScreen = document.getElementById('generatedPlanScreen');
+    if (planScreen) planScreen.style.display = 'block';
+    
+    // تحديث المحتوى
+    updatePlanContent(userInput);
+    
+    // الصعود للأعلى
+    window.scrollTo(0, 0);
+}
+        function updatePlanContent(input) {
+            // Enhanced AI simulation based on keywords
+            let planTitle = "🤖 Mini Robot Tournament";
+            let eventType = "Sports Tech";
+            let targetAudience = "Kids & Youth";
+            
+            if (input.includes('culture') || input.includes('read') || input.includes('art')) {
+                planTitle = "📚 Reading & Culture Festival";
+                eventType = "Cultural & Educational";
+                targetAudience = "All Ages";
+            } else if (input.includes('food') || input.includes('cook') || input.includes('eat')) {
+                planTitle = "🍽️ Local Food Festival";
+                eventType = "Food & Heritage";
+                targetAudience = "Families";
+            } else if (input.includes('environ') || input.includes('clean') || input.includes('green')) {
+                planTitle = "🌱 Green Neighborhood Campaign";
+                eventType = "Environmental & Volunteer";
+                targetAudience = "The Whole Community";
+            } else if (input.includes('sport') || input.includes('football') || input.includes('league')) {
+                planTitle = "⚽ Neighborhood Sports League";
+                eventType = "Competitive Sports";
+                targetAudience = "Youth & Kids";
+            }
+            
+            document.getElementById('planTitle').textContent = planTitle;
+            document.getElementById('eventType').textContent = eventType;
+            document.getElementById('targetAudience').textContent = targetAudience;
+        }
+
+        function goBackToDashboard() {
+    document.getElementById('generatedPlanScreen').style.display = 'none';
+    
+    // تصحيح: استخدام الكلاس الصحيح لإعادة إظهار الهيرو
+    const heroSection = document.querySelector('.hero-section');
+    if (heroSection) heroSection.style.displa0y = 'flex'; // أو block حسب التنسيق الأصلي
+
+    document.querySelectorAll('section').forEach(sec => {
+        if (sec.id !== 'generatedPlanScreen' && !sec.classList.contains('modal')) {
+            sec.style.display = 'block'; // أو flex حسب التصميم
+        }
+    });
+    
+    const footer = document.querySelector('footer');
+    if (footer) footer.style.display = 'block';
+    
+    window.scrollTo(0, 0);
+}
+
+        function editPlan() {
+            alert('🛠️ The advanced plan editor is launching soon! You will be able to edit all details.');
+        }
+
+        function submitForApproval(button) {
+            const originalText = button.innerHTML;
+            button.innerHTML = '⏳ Submitting...';
+            button.disabled = true;
+            
+            setTimeout(() => {
+                alert('🎉 Your plan has been successfully submitted for final approval!\n\n✅ You will receive a confirmation message within 5 minutes.\n📧 The registration link will be generated automatically.\n💰 Crowdfunding will begin immediately.');
+                button.innerHTML = originalText;
+                button.disabled = false;
+                
+                // Add success animation
+                button.classList.add('animate-bounce');
+                setTimeout(() => button.classList.remove('animate-bounce'), 2000);
+                
+                // Optional: Auto redirect after success message
+                // setTimeout(() => goBackToDashboard(), 3000); 
+            }, 2500);
+        }
+
+        function updateContribution() {
+            const slider = document.getElementById('contributionSlider');
+            if (!slider) return;
+
+            const value = parseInt(slider.value);
+            document.getElementById('contributionAmount').textContent = value;
+            
+            // Update funding calculations
+            const totalCost = 2500;
+            const participants = 50;
+            const totalRaised = 1250 + (value * participants); // Start from 1250 base
+            const percentage = Math.min((totalRaised / totalCost) * 100, 100);
+            const remaining = Math.max(totalCost - totalRaised, 0);
+            
+            document.getElementById('raisedAmount').textContent = `${totalRaised.toLocaleString()} SAR`;
+            document.getElementById('remainingAmount').textContent = remaining > 0 ? `${remaining.toLocaleString()} SAR` : 'Funded! 🎉';
+            document.getElementById('fundingPercentage').textContent = `${Math.round(percentage)}%`;
+            
+            // Update circular progress
+            const circumference = 2 * Math.PI * 70;
+            const offset = circumference - (percentage / 100) * circumference;
+            const progressCircle = document.getElementById('progressCircle');
+            if(progressCircle) {
+                progressCircle.style.strokeDashoffset = offset;
+            }
+            
+            // Update colors based on progress
+            const percentageText = document.getElementById('fundingPercentage');
+            
+            if (percentage >= 100) {
+                progressCircle.classList.remove('text-yellow-600', 'text-blue-600');
+                progressCircle.classList.add('text-green-600');
+                percentageText.classList.remove('text-yellow-600', 'text-blue-600');
+                percentageText.classList.add('text-green-600');
+            } else if (percentage >= 75) {
+                progressCircle.classList.remove('text-green-600', 'text-blue-600');
+                progressCircle.classList.add('text-yellow-600');
+                percentageText.classList.remove('text-green-600', 'text-blue-600');
+                percentageText.classList.add('text-yellow-600');
+            } else {
+                progressCircle.classList.remove('text-green-600', 'text-yellow-600');
+                progressCircle.classList.add('text-blue-600');
+                percentageText.classList.remove('text-green-600', 'text-yellow-600');
+                percentageText.classList.add('text-blue-600');
+            }
+        }
+
+        function openModal(modalId) {
+            document.getElementById(modalId).classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside
+        document.querySelectorAll('.modal').forEach(modal => {
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    closeModal(modal.id);
+                }
+            });
+        });
+
+        // Initialize progress circle and suggestions
+        window.addEventListener('load', () => {
+            // Check if we are on the generated plan screen and update the contribution there
+            if (document.getElementById('generatedPlanScreen').style.display !== 'none') {
+                 updateContribution();
+            }
+           
+            // Ensure the main sections are visible on load unless a redirect is intended
+            document.querySelector('section.image-hero-gradient').style.display = 'flex';
+            document.querySelectorAll('section.py-20').forEach(sec => sec.style.display = 'block');
+        });
+
+        // Add smooth scrolling for navigation links
+        document.querySelectorAll('.nav-link').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+    </script>
 </body>
 </html>

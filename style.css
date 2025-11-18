@@ -1,30 +1,166 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700;900&display=swap');
-        
+
+/* ========================
+   Global Styles
+   ======================== */
 * { 
     font-family: 'Poppins', sans-serif; 
-    box-sizing: border-box; /* Professional standard */
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
-        
-/* Custom Colors & Typography */
-.primary-light-bg { background-color: #ffffff; color: #1f2937; }
-.primary-dark-text { color: #1f2937; } 
-        
-/* Hero Section Styles */
+
+/* ========================
+   Colors & Typography
+   ======================== */
+.primary-light-bg { 
+    background-color: #ffffff; 
+    color: #1f2937; 
+}
+
+.primary-dark-text { 
+    color: #1f2937; 
+}
+
+/* ========================
+   Hero Section Styles
+   ======================== */
 .hero-section {
-    background-color: #f3f4f6;
     position: relative;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
 }
+
+.hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('https://images.unsplash.com/photo-1582407947304-fd86f028f716?q=80&w=2000');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: blur(8px);
+    transform: scale(1.1);
+    z-index: 1;
+}
+
+.hero-background::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 2;
+}
+
+.hero-section header,
+.hero-section main {
+    position: relative;
+    z-index: 10;
+}
+
 .image-title {
     font-size: 3.5rem; 
     line-height: 1.1;
     font-weight: 900; 
     color: #1e40af; 
 }
+
 .image-subtitle {
     font-size: 1.4rem; 
     font-weight: 500;
     color: #4b5563;
 }
+
+/* ========================
+   Navigation Menu Styles
+   ======================== */
+nav.flex a.nav-link {
+    font-size: 16px;
+    font-weight: 500;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+nav.flex a.nav-link:hover {
+    color: #2563eb;
+    background-color: #eff6ff;
+}
+
+nav.flex a.nav-link.active {
+    color: #2563eb;
+    background-color: #dbeafe;
+}
+
+nav.flex a.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 50%;
+    background-color: #2563eb;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+nav.flex a.nav-link:hover::after {
+    width: 80%;
+}
+
+/* Navigation Links for Hero */
+.nav-link-hero {
+    font-size: 16px;
+    font-weight: 500;
+    position: relative;
+    transition: all 0.3s ease;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.nav-link-hero:hover {
+    transform: translateY(-2px);
+}
+
+.nav-link-hero::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 50%;
+    background-color: white;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.nav-link-hero:hover::after {
+    width: 80%;
+}
+
+/* ========================
+   Search Bar Styling
+   ======================== */
+input[type="text"] {
+    direction: rtl;
+    text-align: right;
+}
+
+input[type="text"]::placeholder {
+    color: #9ca3af;
+    opacity: 0.8;
+}
+
+input[type="text"]:focus {
+    background: white;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+}
+
+/* ========================
+   Card Styles
+   ======================== */
 .card-image-placeholder {
     height: 200px;
     background-size: cover;
@@ -33,14 +169,18 @@
     overflow: hidden;
 }
 
-/* Interactive Effects */
 .floating-card {
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); /* Smoother transition curve */
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
+
 .floating-card:hover {
     transform: translateY(-8px) scale(1.01);
     box-shadow: 0 15px 30px rgba(0,0,0,0.1);
 }
+
+/* ========================
+   Modal Styles
+   ======================== */
 .modal {
     display: none;
     position: fixed;
@@ -52,17 +192,36 @@
     z-index: 1000;
     backdrop-filter: blur(5px);
 }
+
 .modal.active {
     display: flex;
     align-items: center;
     justify-content: center;
 }
-/* Progress Ring for Funding */
+
+/* ========================
+   Progress & Effects
+   ======================== */
 .progress-ring {
     transform: rotate(-90deg);
 }
 
-/* AI Input Focus Pulse */
+/* Drop Shadow for Text */
+.drop-shadow-2xl {
+    text-shadow: 0 4px 8px rgba(0,0,0,0.5);
+}
+
+.drop-shadow-lg {
+    text-shadow: 0 2px 4px rgba(0,0,0,0.4);
+}
+
+.drop-shadow {
+    text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+}
+
+/* ========================
+   Animations
+   ======================== */
 @keyframes placeholder-pulse {
     0%, 100% { 
         box-shadow: 0 0 0 0px rgba(59, 130, 246, 0.2); 
@@ -73,6 +232,68 @@
         border-color: #3b82f6;
     }
 }
+
 .typing-effect {
     animation: placeholder-pulse 3s infinite;
+}
+
+/* ========================
+   Responsive Design
+   ======================== */
+.mobile-menu-btn {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .hero-section h1 {
+        font-size: 3rem;
+    }
+
+    .hero-section p {
+        font-size: 1.25rem;
+    }
+
+    nav.flex {
+        display: none !important;
+    }
+
+    .mobile-menu-btn {
+        display: block;
+    }
+
+    nav.mobile-menu {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: white;
+        padding: 1rem;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        z-index: 1000;
+    }
+
+    nav.mobile-menu a {
+        padding: 0.75rem;
+        border-bottom: 1px solid #e5e7eb;
+    }
+
+    .image-title {
+        font-size: 2.5rem;
+    }
+
+    .image-subtitle {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .image-title {
+        font-size: 2rem;
+    }
+
+    .image-subtitle {
+        font-size: 1rem;
+    }
 }

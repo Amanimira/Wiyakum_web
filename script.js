@@ -1,202 +1,343 @@
+// ============================================
+// Wiyakum × ROSHN - Fixed Version
+// Full Details Display + Complete Marketing Plan
+// ============================================
+
+console.log('🚀 Wiyakum × ROSHN Loading...');
+
+// ============================================
+// دالة عرض الاقتراحات
+// ============================================
+
 function showSuggestions() {
     const suggestions = [
-        "Organize a family-friendly street food festival with heritage shows",
-        "Create an interactive kids' reading club with digital stories",
-        "A workshop to teach programming and AI to young people",
-        "Neighborhood clean-up and beautification campaign with environmental contests",
-        "A bazaar for local products and handmade crafts",
-        "A mini football league for kids with prizes",
-        "An art exhibition for local talents and creations",
-        "A collaborative cooking workshop to learn traditional dishes"
+        "🤖 بطولة الروبوتات الصغيرة - Mini Robot Tournament",
+        "⚽ دوري كرة القدم الودي - Friendly Football League",
+        "📚 ندوة الكتاب الشهرية - Monthly Book Club",
+        "🎨 ورشة الرسم والفن - Art Workshop",
+        "💻 ورشة البرمجة للمبتدئين - Coding Workshop",
+        "🏃 ماراثون الصحة واللياقة - Health Marathon",
+        "🎭 عرض مسرحي عائلي - Family Theater",
+        "🍳 ورشة الطهي التقليدي - Cooking Workshop",
+        "🎸 حفل موسيقي جماعي - Music Concert",
+        "📖 قصص للأطفال - Kids Storytelling"
     ];
+    
     const randomSuggestion = suggestions[Math.floor(Math.random() * suggestions.length)];
-    document.getElementById('aiInput').value = randomSuggestion;
-    const textarea = document.getElementById('aiInput');
-    textarea.classList.add('typing-effect');
-    setTimeout(() => textarea.classList.remove('typing-effect'), 3000);
+    const inputElement = document.getElementById('aiInput');
+    
+    if (inputElement) {
+        inputElement.value = randomSuggestion;
+        inputElement.classList.add('typing-effect');
+        setTimeout(() => inputElement.classList.remove('typing-effect'), 2000);
+    }
 }
 
+// ============================================
+// توليد الخطة
+// ============================================
+
 function generatePlan(button) {
-    const input = document.getElementById('aiInput').value;
-    if (!input.trim()) {
-        alert('Please enter your idea first! 💡');
+    const input = document.getElementById('aiInput');
+    if (!input || !input.value.trim()) {
+        alert('⚠️ الرجاء إدخال فكرتك أولاً!\nPlease enter your idea first!');
         return;
     }
     
     const originalText = button.innerHTML;
-    button.innerHTML = '⏳ Analyzing & Generating...';
+    button.innerHTML = '⏳ جاري التحليل...';
     button.disabled = true;
     
-    // Add loading overlay
-    const loadingOverlay = document.createElement('div');
-    loadingOverlay.className = 'fixed inset-0 bg-white/70 backdrop-blur-sm flex items-center justify-center z-[1060]';
-    loadingOverlay.innerHTML = `
-        <div class="bg-white rounded-3xl p-8 text-center max-w-md mx-4 shadow-2xl border border-gray-200">
-            <div class="text-6xl mb-4 animate-spin text-blue-600">🤖</div>
-            <h3 class="text-xl font-bold mb-2 text-gray-900">AI at work...</h3>
-            <p class="text-gray-600 mb-4">Analyzing your request and creating a comprehensive plan.</p>
-            <div class="w-full bg-gray-300 rounded-full h-2">
-                <div class="bg-gradient-to-r from-purple-500 to-blue-500 h-2 rounded-full animate-pulse" style="width: 70%"></div>
-            </div>
-        </div>
-    `;
-    document.body.appendChild(loadingOverlay);
-    
-    // Simulate API response time
     setTimeout(() => {
-        document.body.removeChild(loadingOverlay);
-        updatePlanContent(input); 
-        showGeneratedPlan();
+        updatePlanContent(input.value);
+        showModal();
         button.innerHTML = originalText;
         button.disabled = false;
-        document.getElementById('aiInput').value = '';
-    }, 4000);
+        input.value = '';
+    }, 2500);
 }
 
-function showGeneratedPlan() {
-    document.querySelector('.hero-section').style.display = 'none';
-    document.querySelectorAll('section.py-20').forEach(sec => sec.style.display = 'none');
-    document.getElementById('generatedPlanScreen').style.display = 'block';
-    window.scrollTo(0, 0);
+// ============================================
+// عرض وإخفاء المودال
+// ============================================
+
+function showModal() {
+    const modal = document.getElementById('generatedPlanModal');
+    if (modal) {
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
 }
+
+function closeModal() {
+    const modal = document.getElementById('generatedPlanModal');
+    if (modal) {
+        modal.classList.remove('active');
+        document.body.style.overflow = 'auto';
+    }
+}
+
+// ============================================
+// تحديث محتوى الخطة - قاعدة بيانات كاملة
+// ============================================
 
 function updatePlanContent(input) {
-    // AI Simulation Logic based on keywords
-    let planTitle = "🤖 Mini Robot Tournament";
-    let eventType = "Sports Tech";
-    let targetAudience = "Kids & Youth";
+    const inputLower = input.toLowerCase();
     
-    if (input.includes('culture') || input.includes('read') || input.includes('art')) {
-        planTitle = "📚 Reading & Culture Festival";
-        eventType = "Cultural & Educational";
-        targetAudience = "All Ages";
-    } else if (input.includes('food') || input.includes('cook') || input.includes('eat')) {
-        planTitle = "🍽️ Local Food Festival";
-        eventType = "Food & Heritage";
-        targetAudience = "Families";
-    } else if (input.includes('environ') || input.includes('clean') || input.includes('green')) {
-        planTitle = "🌱 Green Neighborhood Campaign";
-        eventType = "Environmental & Volunteer";
-        targetAudience = "The Whole Community";
-    } else if (input.includes('sport') || input.includes('football') || input.includes('league')) {
-        planTitle = "⚽ Neighborhood Sports League";
-        eventType = "Competitive Sports";
-        targetAudience = "Youth & Kids";
+    // قاعدة بيانات شاملة
+    const eventDatabase = {
+        "روبوت|robot": {
+            title: "🤖 بطولة الروبوتات الصغيرة",
+            type: "تقني وتعليمي",
+            audience: "الأطفال والشباب (8-16 سنة)",
+            scheduledTime: "السبت، 15 ديسمبر، 5:00 مساءً - 8:00 مساءً",
+            date: "Saturday, Dec 15, 5:00 PM - 8:00 PM",
+            venue: "مركز الحي الرياضي - القاعة الرئيسية",
+            totalCost: "2,500",
+            amountRaised: "1,250",
+            needed: "1,250",
+            percentage: "50",
+            suggestedContribution: "25",
+            supervisor: "مدرب روبوتات معتمد - تم تأكيده ✓",
+            equipment: [
+                "روبوتات صغيرة (10 مجموعات)",
+                "حلبة تحديات وعوائق",
+                "جوائز وميداليات للفائزين",
+                "أجهزة كمبيوتر لبرمجة الروبوتات",
+                "مكبرات صوت وإضاءة احترافية"
+            ],
+            marketingChannels: [
+                "تطبيق ROSHN الرسمي",
+                "مجموعات واتساب الآباء",
+                "لوحات إعلانات في المراكز",
+                "بريد إلكتروني للعائلات",
+                "منشورات إنستقرام وتيك توك"
+            ],
+            marketingDraft: "🤖 بطولة الروبوتات الصغيرة - تحدَّ المستقبل!\n\n🚀 انضم إلينا في مغامرة تقنية مثيرة! سيتنافس الأطفال والشباب في بناء وبرمجة روبوتات صغيرة.\n\n📅 التاريخ: السبت 15 ديسمبر، 5-8 مساءً\n📍 المكان: مركز الحي الرياضي\n🎯 الأعمار: 8-16 سنة\n💰 المساهمة: 25 ريال فقط\n\n🔗 رابط التسجيل: سيتم توليده تلقائياً"
+        },
+        "كرة|football": {
+            title: "⚽ دوري كرة القدم الودي",
+            type: "رياضي",
+            audience: "الشباب والكبار (14+)",
+            scheduledTime: "الجمعة، 20 ديسمبر، 4:00 مساءً - 7:00 مساءً",
+            date: "Friday, Dec 20, 4:00 PM - 7:00 PM",
+            venue: "ملعب روشن الرياضي الرئيسي",
+            totalCost: "2,000",
+            amountRaised: "1,200",
+            needed: "800",
+            percentage: "60",
+            suggestedContribution: "30",
+            supervisor: "حكم معتمد - تم تأكيده ✓",
+            equipment: [
+                "5 كرات قدم احترافية",
+                "أهداف وشباك",
+                "مياه وإسعافات أولية",
+                "كؤوس وميداليات"
+            ],
+            marketingChannels: [
+                "تطبيق ROSHN - الرياضة",
+                "مجموعات الرياضيين",
+                "ملعب روشن"
+            ],
+            marketingDraft: "⚽ دوري كرة القدم الودي!\n\n📅 الجمعة 20 ديسمبر، 4-7 مساءً\n📍 ملعب روشن\n💰 30 ريال\n\n🔗 سجّل الآن"
+        },
+        "قراءة|book|كتاب": {
+            title: "📚 ندوة الكتاب الشهرية",
+            type: "ثقافي",
+            audience: "محبو القراءة",
+            scheduledTime: "الثلاثاء، 10 ديسمبر، 6:00 مساءً - 8:00 مساءً",
+            date: "Tuesday, Dec 10, 6:00 PM - 8:00 PM",
+            venue: "مكتبة روشن المجتمعية",
+            totalCost: "800",
+            amountRaised: "500",
+            needed: "300",
+            percentage: "62",
+            suggestedContribution: "20",
+            supervisor: "ميسر ثقافي - تم تأكيده ✓",
+            equipment: [
+                "30 نسخة من الكتاب",
+                "مقاعد مريحة",
+                "ضيافة خفيفة"
+            ],
+            marketingChannels: [
+                "تطبيق ROSHN - الثقافة",
+                "مكتبة روشن",
+                "مجموعات القراءة"
+            ],
+            marketingDraft: "📚 ندوة الكتاب!\n\n📅 الثلاثاء 10 ديسمبر\n📍 مكتبة روشن\n💰 20 ريال"
+        },
+        "رسم|art|فن": {
+            title: "🎨 ورشة الرسم والفن",
+            type: "فني",
+            audience: "جميع الأعمار",
+            scheduledTime: "الأربعاء، 18 ديسمبر، 4:00 مساءً - 6:00 مساءً",
+            date: "Wednesday, Dec 18, 4:00 PM - 6:00 PM",
+            venue: "استوديو الفنون - روشن",
+            totalCost: "1,200",
+            amountRaised: "720",
+            needed: "480",
+            percentage: "60",
+            suggestedContribution: "40",
+            supervisor: "فنان معتمد - تم تأكيده ✓",
+            equipment: [
+                "30 لوحة رسم",
+                "فرش وألوان",
+                "مآزر حماية"
+            ],
+            marketingChannels: [
+                "تطبيق ROSHN - الفنون",
+                "استوديو الفنون"
+            ],
+            marketingDraft: "🎨 ورشة الرسم!\n\n📅 الأربعاء 18 ديسمبر\n💰 40 ريال"
+        },
+        "برمجة|programming|code": {
+            title: "💻 ورشة البرمجة للمبتدئين",
+            type: "تقني",
+            audience: "المبتدئين (10+)",
+            scheduledTime: "الخميس، 21 ديسمبر، 10:00 صباحاً - 1:00 مساءً",
+            date: "Thursday, Dec 21, 10:00 AM - 1:00 PM",
+            venue: "معمل روشن التقني",
+            totalCost: "1,500",
+            amountRaised: "900",
+            needed: "600",
+            percentage: "60",
+            suggestedContribution: "45",
+            supervisor: "مدرب معتمد - تم تأكيده ✓",
+            equipment: [
+                "30 جهاز كمبيوتر",
+                "برامج تعليمية",
+                "شهادات مشاركة"
+            ],
+            marketingChannels: [
+                "تطبيق ROSHN - التقنية",
+                "معمل روشن"
+            ],
+            marketingDraft: "💻 ورشة البرمجة!\n\n📅 الخميس 21 ديسمبر\n💰 45 ريال"
+        }
+    };
+    
+    // البحث عن تطابق
+    let matchedEvent = null;
+    for (const [keywords, eventData] of Object.entries(eventDatabase)) {
+        const keywordList = keywords.split('|');
+        if (keywordList.some(keyword => inputLower.includes(keyword))) {
+            matchedEvent = eventData;
+            break;
+        }
     }
     
-    document.getElementById('planTitle').textContent = planTitle;
-    document.getElementById('eventType').textContent = eventType;
-    document.getElementById('targetAudience').textContent = targetAudience;
+    // خطة افتراضية
+    if (!matchedEvent) {
+        matchedEvent = {
+            title: "🎉 " + input,
+            type: "فعالية مجتمعية",
+            audience: "الجميع",
+            scheduledTime: "نهاية الأسبوع - 5:00 مساءً",
+            date: "Weekend - 5:00 PM",
+            venue: "مركز روشن المجتمعي",
+            totalCost: "1,500",
+            amountRaised: "900",
+            needed: "600",
+            percentage: "60",
+            suggestedContribution: "40",
+            supervisor: "مشرف معتمد ✓",
+            equipment: ["معدات أساسية", "ضيافة خفيفة"],
+            marketingChannels: ["تطبيق ROSHN", "مجموعات واتساب"],
+            marketingDraft: "فعالية رائعة في روشن!\n\n📅 قريباً\n📍 مركز روشن"
+        };
+    }
+    
+    // تحديث العناصر
+    updateElement('planTitle', matchedEvent.title);
+    updateElement('eventType', matchedEvent.type);
+    updateElement('targetAudience', matchedEvent.audience);
+    updateElement('scheduledTime', matchedEvent.scheduledTime);
+    updateElement('suggestedDate', matchedEvent.date);
+    updateElement('suggestedVenue', matchedEvent.venue);
+    updateElement('totalCost', matchedEvent.totalCost + ' SAR');
+    updateElement('amountRaised', matchedEvent.amountRaised + ' SAR');
+    updateElement('needed', matchedEvent.needed + ' SAR');
+    updateElement('fundingPercentage', matchedEvent.percentage + '%');
+    updateElement('suggestedContribution', matchedEvent.suggestedContribution + ' SAR');
+    updateElement('approvedSupervisor', matchedEvent.supervisor);
+    
+    // تحديث المعدات
+    const equipmentList = document.getElementById('equipmentList');
+    if (equipmentList && matchedEvent.equipment) {
+        equipmentList.innerHTML = matchedEvent.equipment.map(item => `
+            <li class="flex items-start gap-3 p-3 bg-gray-50 rounded-xl hover:bg-emerald-50 transition-colors">
+                <span class="text-emerald-600 text-xl">✓</span>
+                <span class="text-gray-700">${item}</span>
+            </li>
+        `).join('');
+    }
+    
+    // تحديث قنوات التسويق
+    const marketingList = document.getElementById('marketingChannelsList');
+    if (marketingList && matchedEvent.marketingChannels) {
+        const icons = ['📱', '💬', '📋', '📧', '📸'];
+        marketingList.innerHTML = matchedEvent.marketingChannels.map((channel, i) => `
+            <div class="p-4 bg-gradient-to-r from-blue-50 to-blue-100 rounded-xl flex items-center gap-3 hover:shadow-md transition-shadow">
+                <span class="text-2xl">${icons[i % 5]}</span>
+                <span class="text-gray-700">${channel}</span>
+            </div>
+        `).join('');
+    }
+    
+    // تحديث البيان التسويقي
+    const marketingDraft = document.getElementById('marketingDraft');
+    if (marketingDraft) {
+        marketingDraft.innerHTML = `
+            <div class="bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl p-6 border-2 border-purple-200">
+                <h4 class="text-xl font-bold text-purple-900 mb-4 flex items-center gap-2">
+                    <span class="text-2xl">📢</span>
+                    البيان الترويجي - Marketing Draft
+                </h4>
+                <div class="bg-white rounded-xl p-4 whitespace-pre-line text-gray-700 leading-relaxed">
+${matchedEvent.marketingDraft}
+                </div>
+            </div>
+        `;
+    }
 }
 
-function goBackToDashboard() {
-    document.getElementById('generatedPlanScreen').style.display = 'none';
-    document.querySelector('.hero-section').style.display = 'flex';
-    document.querySelectorAll('section.py-20').forEach(sec => sec.style.display = 'block');
-    window.scrollTo(0, 0);
-}
+// ============================================
+// دوال مساعدة
+// ============================================
 
-function editPlan() {
-    alert('🛠️ The advanced plan editor is launching soon! You will be able to edit all details.');
+function updateElement(id, value) {
+    const element = document.getElementById(id);
+    if (element) {
+        element.textContent = value;
+    }
 }
 
 function submitForApproval(button) {
     const originalText = button.innerHTML;
-    button.innerHTML = '⏳ Submitting...';
+    button.innerHTML = '⏳ جاري التقديم...';
     button.disabled = true;
     
     setTimeout(() => {
-        alert('🎉 Your plan has been successfully submitted for final approval!\n\n✅ You will receive a confirmation message within 5 minutes.\n📧 The registration link will be generated automatically.\n💰 Crowdfunding will begin immediately.');
+        alert('🎉 تم تقديم خطتك بنجاح!\n\n✅ ستتلقى بريد تأكيد خلال ساعة');
         button.innerHTML = originalText;
         button.disabled = false;
-        button.classList.add('animate-bounce');
-        setTimeout(() => button.classList.remove('animate-bounce'), 2000);
-        setTimeout(() => goBackToDashboard(), 3000);
-    }, 2500);
+        setTimeout(() => closeModal(), 2000);
+    }, 2000);
 }
 
-function updateContribution() {
-    const slider = document.getElementById('contributionSlider');
-    const progressCircle = document.getElementById('progressCircle');
-    if (!slider || !progressCircle) return; // Check if elements exist before processing
-
-    const value = parseInt(slider.value);
-    document.getElementById('contributionAmount').textContent = value;
-    
-    const totalCost = 2500;
-    const participants = 50;
-    const totalRaised = participants * value;
-    const percentage = Math.min((totalRaised / totalCost) * 100, 100);
-    const remaining = Math.max(totalCost - totalRaised, 0);
-    
-    document.getElementById('raisedAmount').textContent = `${totalRaised.toLocaleString()} SAR`;
-    const remainingElement = document.getElementById('remainingAmount');
-    const percentageText = document.getElementById('fundingPercentage');
-    
-    // Color logic
-    progressCircle.classList.remove('text-green-600', 'text-yellow-600', 'text-blue-600', 'text-orange-600');
-    percentageText.classList.remove('text-green-600', 'text-yellow-600', 'text-blue-600', 'text-orange-600');
-
-    if (percentage >= 100) {
-        remainingElement.textContent = 'Funded! 🎉';
-        progressCircle.classList.add('text-green-600');
-        percentageText.classList.add('text-green-600');
-    } else {
-        remainingElement.textContent = `${remaining.toLocaleString()} SAR`;
-        if (percentage >= 75) {
-            progressCircle.classList.add('text-yellow-600');
-            percentageText.classList.add('text-yellow-600');
-        } else if (percentage >= 50) {
-            progressCircle.classList.add('text-orange-600');
-            percentageText.classList.add('text-orange-600');
-        } else {
-            progressCircle.classList.add('text-blue-600');
-            percentageText.classList.add('text-blue-600');
-        }
-    }
-    
-    percentageText.textContent = `${Math.round(percentage)}%`;
-
-    // Update circular progress (Circumference 439.82)
-    const circumference = 2 * Math.PI * 70;
-    const offset = circumference - (percentage / 100) * circumference;
-    progressCircle.style.strokeDashoffset = offset;
-}
-
-function openModal(modalId) {
-    document.getElementById(modalId).classList.add('active');
-    document.body.style.overflow = 'hidden';
-}
-
-function closeModal(modalId) {
-    document.getElementById(modalId).classList.remove('active');
-    document.body.style.overflow = 'auto';
-}
-
-// Global Event Listeners
-document.querySelectorAll('.modal').forEach(modal => {
-    modal.addEventListener('click', (e) => {
-        if (e.target === modal) {
-            closeModal(modal.id);
-        }
-    });
-});
+// ============================================
+// التهيئة
+// ============================================
 
 window.addEventListener('load', () => {
-    updateContribution();
+    console.log('✅ Wiyakum × ROSHN Ready!');
+    
+    const modal = document.getElementById('generatedPlanModal');
+    if (modal) {
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) closeModal();
+        });
+    }
 });
 
-document.addEventListener('DOMContentLoaded', function() {
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            }
-        });
-    });
-});
+console.log('%c🚀 Wiyakum × ROSHN', 'background: #3b82f6; color: white; font-size: 20px; padding: 10px;');
